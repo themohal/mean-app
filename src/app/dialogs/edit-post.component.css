@@ -1,0 +1,10 @@
+
+mat-form-field,
+textarea{
+  width: 100%;
+
+}
+#cancelBtn{
+  background-color: red;
+  margin-left: 2rem;
+}
