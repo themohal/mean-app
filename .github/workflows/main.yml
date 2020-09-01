@@ -32,4 +32,4 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.SURGE_TOKEN }}
         BRANCH: master
-        FOLDER: dist/mean-app
+        FOLDER: ./dist/mean-app
