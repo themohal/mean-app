@@ -23,8 +23,8 @@ jobs:
       run: |
         npm install
         npm run-script deploy
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
+    - name: Deploy 
+      uses: JamesIves/github-pages-deploy-action@3.5.9
       with:
         GITHUB_TOKEN: ${{ secrets.SURGE_TOKEN }}
         BRANCH: master
