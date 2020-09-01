@@ -30,9 +30,7 @@ jobs:
         cmd: install -g # will run `yarn install` command
         
     - name: npm install and npm run build
-      run: |
-          npm ci
-          npm run build:ci
+      run: ng build
     
     - name : Install Surge
       run: npm install -g surge
