@@ -62,7 +62,8 @@ router.post('/posts',async (req,res)=>{
           try{
           await Post.findById(id,function(err, data)
           {
-            res.status(200).json(data);
+            const post = data;
+            res.status(200).json({post:post});
           });
         }catch{(err)=>{console.log(err)}}
 

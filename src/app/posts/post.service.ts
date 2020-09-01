@@ -41,7 +41,7 @@ export class PostService {
     });
   }
   getOnePost(id:string){
-    return this.http.get("http://localhost:3000/api/posts/"+id);
+    return this.http.get<{post:Post[]}>("http://localhost:3000/api/posts/"+id);
 
   }
   updatePost(id:string,title:string,content:string){

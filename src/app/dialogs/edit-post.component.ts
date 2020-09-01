@@ -15,10 +15,12 @@ export class PostEditComponent implements OnInit,OnDestroy{
   id:string;
   public title:string;
   public content:string;
-  posts:Post[]= [];
+  public posts:Post [] = [];
   private postSub:Subscription ;
   private getOnePostSub:Subscription;
   private postUpdateSub:Subscription;
+  public titleDb : string;
+  public contentDb: string;
 
 
 
@@ -30,9 +32,11 @@ export class PostEditComponent implements OnInit,OnDestroy{
     @Inject(MAT_DIALOG_DATA) data)
     {
       this.id = data.id as string;
-     this.getOnePostSub= this.postService.getOnePost(this.id).subscribe((posts:Post[])=>{
+
+     this.getOnePostSub= this.postService.getOnePost(this.id).subscribe((posts)=>{
         console.log("Got Data: ",posts);
-        this.posts = posts;
+         this.posts = posts.post;
+
         //editPost.setValue([{title:this.title}])
       })
 
@@ -43,10 +47,10 @@ export class PostEditComponent implements OnInit,OnDestroy{
     if (editPost.invalid){
       return;
     }
-    if(this.posts.title!= editPost.value.title || this.posts.content!= editPost.value.content ){
-      this.posts.title = editPost.value.title;
-      this.posts.content = editPost.value.content;
-    this.postUpdateSub=this.postService.updatePost(this.id,this.posts.title,this.posts.content).subscribe((dataUpdate)=>{
+    if(this.posts['title']!= editPost.value.title || this.posts['content']!= editPost.value.content ){
+      this.posts['title'] = editPost.value.title;
+      this.posts['content'] = editPost.value.content;
+    this.postUpdateSub=this.postService.updatePost(this.id,this.posts['title'],this.posts['content']).subscribe((dataUpdate)=>{
       console.log("Data Update: "+dataUpdate)
     });
     this.dialogRef.close();

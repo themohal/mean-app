@@ -5,14 +5,14 @@
     ngModel
     required
     placeholder="Title Here ..."
-    #title="ngModel" [value]="posts.title">
+    #title="ngModel" [value]="posts['title']">
     <mat-error *ngIf="title.invalid">Please Enter the post title</mat-error>
   </mat-form-field>
 <mat-form-field >
 <textarea matInput rows="4"
 name="content" ngModel
 placeholder="Content Here ..."
-required #content="ngModel" [value]="posts.content">
+required #content="ngModel" [value]="posts['content']">
 </textarea>
 <mat-error *ngIf="content.invalid">Please Enter the post content.</mat-error>
 
