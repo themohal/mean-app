@@ -10,6 +10,129 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
+mean-app/.github/workflows/
+1
+
+name: Build and Deploy
+
+2
+
+​
+
+3
+
+on:
+
+4
+
+  push:
+
+5
+
+    branches:
+
+6
+
+      - master
+
+7
+
+jobs:
+
+8
+
+  build-and-deploy:
+
+9
+
+    runs-on: ubuntu-latest
+
+10
+
+    steps:
+
+11
+
+    - name: Checkout
+
+12
+
+      uses: actions/checkout@v1
+
+13
+
+    - uses: actions/setup-node@v1 #this installs node and npm for us
+
+14
+
+      with:
+
+15
+
+        node-version: '10.x'
+
+16
+
+    - uses: actions/cache@v1
+
+17
+
+      with:
+
+18
+
+        path: ~/.npm
+
+19
+
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+20
+
+        restore-keys: |
+
+21
+
+          ${{ runner.os }}-node- 
+
+22
+
+    - name: Installing GH Pages
+
+23
+
+      run: npm install -g angular-cli-ghpages   
+
+24
+
+    - name: Build
+
+25
+
+      run: |
+
+26
+
+        npm install
+
+27
+
+        npm run-script deploy
+
+28
+
+    - name: Install Nodemon
+
+29
+
+      run: npm install -g nodemon
+
+30
+
+    - name: Deploy
+
+Use Control + Space to trigger autocomplete in most situations.
+
     - uses: actions/setup-node@v1 #this installs node and npm for us
       with:
         node-version: '10.x'
@@ -30,6 +153,5 @@ jobs:
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
-        GITHUB_TOKEN: ${{ secrets.SURGE_TOKEN }}
         BRANCH: master
-        FOLDER: ./dist/mean-app
+        FOLDER: dist/mean-app
