@@ -25,8 +25,6 @@ jobs:
         npm run-script deploy
     - name: Install Nodemon
       run: npm install -g nodemon
-    - name: Start Nodemon
-      run: nodemon server.js
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
