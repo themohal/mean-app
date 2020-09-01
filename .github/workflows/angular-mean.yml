@@ -30,7 +30,7 @@ jobs:
         cmd: install -g # will run `yarn install` command
         
     - name: npm install and npm run build
-        run: |
+      run: |
           npm ci
           npm run build:ci
     
