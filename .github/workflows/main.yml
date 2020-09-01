@@ -18,7 +18,9 @@ jobs:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
-          ${{ runner.os }}-node-    
+          ${{ runner.os }}-node- 
+    - name: Installing GH Pages
+      run: npm install -g angular-cli-ghpages   
     - name: Build
       run: |
         npm install
@@ -29,5 +31,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.SURGE_TOKEN }}
-        BRANCH: gh-pages
+        BRANCH: master
         FOLDER: dist/mean-app
