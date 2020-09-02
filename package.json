@@ -9,8 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "start:server": "nodemon server.js",
-    "lambda-serve": "netlify-lambda serve functions",
-    "lambda-build": "netlify-lambda build functions"
+    "prod":"npm run build;npm run build:lambda",
+    "start:lambda":"netlify-lambda serve functions",
+    "build:lambda": "netlify-lambda build functions"
   },
   "private": true,
   "dependencies": {
