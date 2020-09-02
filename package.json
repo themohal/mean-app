@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "start:server": "nodemon server.js",
-    "prod":"npm run build;npm run build:lambda;npm install mongodb --save;npm install mongoose --save;net start mongod npm run start:server",
+    "prod":"npm run build;npm run build:lambda;npm install mongodb --save;npm install mongoose --save;net start mongod; npm run start:server",
     "start:lambda":"netlify-lambda serve functions",
     "build:lambda": "netlify-lambda build functions"
   },
