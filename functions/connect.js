@@ -1,7 +1,7 @@
 const mongoose =  require('mongoose');
 const express = require('express');
 const app = express();
-const Post = require('../../mean-app/backend/models/post');
+const Post = require('../backend/models/post');
 const path = require('path');
 
 
