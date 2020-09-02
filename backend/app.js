@@ -27,12 +27,16 @@ const express = require('express');
 const app = express();
 const Post = require('./models/post');
 const mongoose =  require('mongoose');
+const path = require('path');
+
 
 const bodyparser = require('body-parser');
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
+app.use(express.static(__dirname + '/dist'));
 let controller = require('./controller');
+
 let dbName = "mean-app";
 let password = "zbryPOKORHLa5C4J";
 mongoose.connect("mongodb+srv://phoenix:"+password+"@phoenix-cluster.24xxp.mongodb.net/"+dbName+"?retryWrites=true&w=majority",{useUnifiedTopology: true, useNewUrlParser: true ,useFindAndModify:false})
