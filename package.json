@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:server": "nodemon server.js"
+    "start:server": "nodemon server.js",
+    "lambda-serve": "netlify-lambda serve functions",
+    "lambda-build": "netlify-lambda build functions"
   },
   "private": true,
   "dependencies": {
@@ -25,8 +27,10 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongodb": "^3.5.9",
+    "netlify-lambda": "^2.0.1",
     "nodemon": "^2.0.4",
     "rxjs": "~6.5.5",
+    "serverless-http": "^2.5.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },
