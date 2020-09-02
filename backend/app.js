@@ -49,7 +49,7 @@ console.log("Connected to database");
 //mongoose.disconnect();
 });
 
-app.use('/api',controller);
+app.use('api',controller);
 
 
 module.exports = app; //to import it in server.js where node server is running
