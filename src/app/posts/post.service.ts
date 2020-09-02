@@ -15,7 +15,7 @@ export class PostService {
   constructor(private http:HttpClient){}
   getPosts(){
   // return [...this.posts]; //copying array
-    this.http.get<{post:Post[]}>('http://localhost:3000api/posts')
+    this.http.get<{post:Post[]}>('http://localhost:3000/api/posts')
     .subscribe((postData)=>{
       this.posts = postData.post;
       this.postUpdated.next([...this.posts]);
