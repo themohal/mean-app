@@ -46,7 +46,7 @@ console.log("Connected to database");
 }).catch(()=>{
   console.log("Connection Failed");
 }).finally(()=>{
-mongoose.disconnect();
+//mongoose.disconnect();
 });
 
 app.use('/api',controller);
