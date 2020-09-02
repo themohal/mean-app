@@ -1,6 +1,6 @@
 const http =  require('http');
 const app = require('../backend/app');
-exports.handler = function(event, context, callback) {
+exports.handler = async (event, context, callback)=> {
 const normalizePort = val => {
   const port = parseInt(val, 10);
 
