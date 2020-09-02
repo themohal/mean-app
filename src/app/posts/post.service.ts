@@ -15,7 +15,7 @@ export class PostService {
   constructor(private http:HttpClient){}
   getPosts(){
   // return [...this.posts]; //copying array
-    this.http.get<{post:Post[]}>('http://localhost:3000/api/posts')
+    this.http.get<{post:Post[]}>('https://gifted-curie-c341f6.netlify.app//api/posts')
     .subscribe((postData)=>{
       this.posts = postData.post;
       this.postUpdated.next([...this.posts]);
@@ -26,7 +26,7 @@ export class PostService {
   }
   addPost(title:string,content:string):void{
     const post:Post = {id:null,title:title,content:content};
-    this.http.post<{message:string}>('http://localhost:3000/api/posts',post)
+    this.http.post<{message:string}>('https://gifted-curie-c341f6.netlify.app//api/posts',post)
     .subscribe((responseData)=>{
       console.log(responseData.message);
       this.getPosts();

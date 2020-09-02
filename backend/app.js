@@ -27,7 +27,6 @@ const express = require('express');
 const app = express();
 const Post = require('./models/post');
 const mongoose =  require('mongoose');
-const serverless = require('serverless-http');
 const path = require('path');
 
 
@@ -50,7 +49,7 @@ console.log("Connected to database");
 //mongoose.disconnect();
 });
 
-app.use('/.netlify/functions/api',controller);
+app.use('/api',controller);
 
 
-module.exports = serverless(app); //to import it in server.js where node server is running
+module.exports = app; //to import it in server.js where node server is running
