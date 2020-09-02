@@ -11,9 +11,8 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
 app.use(express.static(__dirname + '/dist'));
 let controller = require('../backend/controller');
+
 exports.handler = async (event, context, callback)=> {
-
-
 
 let dbName = "mean-app";
 let password = "zbryPOKORHLa5C4J";
@@ -31,4 +30,8 @@ app.use('/api',controller);
 
 
 module.exports = app; //to import it in server.js where node server is running
+callback(null,{
+  statusCode: 200,
+  body: console.log("Connected to database")
+});
 }
