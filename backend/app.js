@@ -46,10 +46,10 @@ console.log("Connected to database");
 }).catch(()=>{
   console.log("Connection Failed");
 }).finally(()=>{
-//mongoose.disconnect();
+mongoose.disconnect();
 });
 
-app.use('/.netlify/functions/api',controller);
+app.use('/api',controller);
 
 
 module.exports = app; //to import it in server.js where node server is running
