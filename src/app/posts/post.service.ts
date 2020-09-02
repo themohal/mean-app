@@ -15,7 +15,7 @@ export class PostService {
   constructor(private http:HttpClient){}
   getPosts(){
   // return [...this.posts]; //copying array
-    this.http.get<{post:Post[]}>('https://gifted-curie-c341f6.netlify.app//api/posts')
+    this.http.get<{post:Post[]}>('http://localhost:3000/api/posts')
     .subscribe((postData)=>{
       this.posts = postData.post;
       this.postUpdated.next([...this.posts]);
@@ -26,7 +26,7 @@ export class PostService {
   }
   addPost(title:string,content:string):void{
     const post:Post = {id:null,title:title,content:content};
-    this.http.post<{message:string}>('https://gifted-curie-c341f6.netlify.app//api/posts',post)
+    this.http.post<{message:string}>('http://localhost:3000/api/posts',post)
     .subscribe((responseData)=>{
       console.log(responseData.message);
       this.getPosts();
@@ -35,18 +35,18 @@ export class PostService {
       this.postUpdated.next([...this.posts]);
   }
   deletePost(id:string){
-    this.http.delete<{message:any}>("https://gifted-curie-c341f6.netlify.app/api/posts/"+id).subscribe((data)=>{
+    this.http.delete<{message:any}>("http://localhost:3000/api/posts/"+id).subscribe((data)=>{
       console.log(data);
     this.getPosts();
     });
   }
   getOnePost(id:string){
-    return this.http.get<{post:Post[]}>("https://gifted-curie-c341f6.netlify.app/api/posts/"+id);
+    return this.http.get<{post:Post[]}>("http://localhost:3000/api/posts/"+id);
 
   }
   updatePost(id:string,title:string,content:string){
     const post:Post = {id:id,title:title,content:content};
-    return this.http.put("https://gifted-curie-c341f6.netlify.app/api/posts/"+post.id,post);
+    return this.http.put("http://localhost:3000/api/posts/"+post.id,post);
    //console.log("OnSave: " +posts.title)
   }
 }
